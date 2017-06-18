@@ -23,7 +23,7 @@ module.exports = (command, args, options) => {
       task: () => refresh(options),
     }
   ], {
-    showSubtasks: false
+  //  showSubtasks: false
   });
 
   return tasks.run();

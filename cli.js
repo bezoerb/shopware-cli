@@ -5,13 +5,23 @@ const path = require('path');
 const meow = require('meow');
 const updateNotifier = require('update-notifier');
 const logSymbols = require('log-symbols');
-const execa = require('execa');
+const trimNewlines = require('trim-newlines');
+const redent = require('redent');
 const ui = require('./lib/ui');
 const {base} = require('./lib/env');
 const store = require('./lib/store');
 const swag = require('./');
 
-const cli = meow(`
+const cli = meow({help: false});
+
+updateNotifier({pkg: cli.pkg}).notify();
+
+//console.log(cli);process.exit(1);
+
+const rcContent = `# This file is required to identify the root installation directory.
+# The config can be found in: ${store.path}`;
+
+const showHelp = () => console.log(redent(trimNewlines(`
 	Usage
 	  $ shopware <command>
 	  
@@ -26,16 +36,11 @@ const cli = meow(`
 	Examples
 	  $ swag install
 	  $ swag 
-`);
-
-updateNotifier({pkg: cli.pkg}).notify();
-
-const rcContent = `# This file is required to identify the root installation directory.
-# The config can be found in: ${store.path}`;
+`), 2));
 
 Promise
   .resolve()
-  .then(() => ({cmd: cli.input[0], input: cli.input[1] || ''}))
+  .then(() => ({cmd: cli.input[0], input: cli.input.slice(1) || []}))
   .then(({cmd, input}) => {
     if (cmd === 'install') {
       fs.writeFileSync(path.join(base, '.shopware-cli.json'), rcContent);
@@ -49,7 +54,7 @@ Promise
       return swag(cmd, input, Object.assign({}, cli.flags, answers));
     }
 
-    cli.showHelp();
+    showHelp();
   })
   .catch(err => {
     console.error(`\n${logSymbols.error} ${err.message}`);
