@@ -4,7 +4,7 @@ Convinienve CLI tool for shopware - **BETA**
 
 ## Features
 
-* Install
+#### Install
 ```bash
 $ shopware install
 ```
@@ -24,7 +24,7 @@ Install [shopware](https://github.com/shopware/shopware) with an opinionated fol
 With this structure it's possible to keep shopware clean and out of your git repository
 
 
-* Update
+#### Update
 
 ```bash
 $ shopware update
@@ -32,18 +32,23 @@ $ shopware update
 
 Update submodule, plugins and theme and finally run migrations. Should be called after `git pull`
 
-* Console
+#### Console
 
- ```bash
- $ shopware console command [options] [arguments]
- ```
+```bash
+$ shopware console command [options] [arguments]
+```
 
 Run shopware console commands from anywhere in the project.
 
-* Official shopware CLI tools
+#### Official shopware CLI tools
 
- ```bash
- $ shopware phar command [options] [arguments]
- ```
+```bash
+$ shopware phar command [options] [arguments]
+```
 
 Run the official [shopware CLI tools](https://github.com/shopwareLabs/sw-cli-tools) from anywhere in the project.
+
+
+## License
+
+MIT © [Ben Zörb](http://sommerlaune.com)
