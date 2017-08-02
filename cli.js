@@ -60,7 +60,7 @@ Promise
     return {cmd, answers: {}, input};
   })
   .then(({cmd, answers, input}) => {
-    if (!answers.overwrite && !initial) {
+    if (cmd === 'install' && !answers.overwrite && !initial) {
       console.log(redent(trimNewlines(`${chalk.red('Canceled due to existing installation')}`)));
       process.exit(0);
     }
