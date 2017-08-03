@@ -4,12 +4,23 @@ Convinienve CLI tool for shopware - **BETA**
 
 ## Features
 
+* Install [shopware](https://github.com/shopware/shopware) with an opinionated folder structure for git projects.
+* Update projects
+* Run shopware console commands from any subdirectory in the project
+* Run the official [shopware CLI tools](https://github.com/shopwareLabs/sw-cli-tools) from any subdirectory in the project.
+
+## Install
+
+```bash
+$ npm i -g shopware-cli
+```
+
+## Usage
+
 #### Install
 ```bash
 $ shopware install
 ```
-
-Install [shopware](https://github.com/shopware/shopware) with an opinionated folder structure for git projects.
 
 ```bash
 ├── plugins          # Plugins get symlinked to src/custom/plugins/...
@@ -38,7 +49,6 @@ Update submodule, plugins and theme and finally run migrations. Should be called
 $ shopware console command [options] [arguments]
 ```
 
-Run shopware console commands from anywhere in the project.
 
 #### Official shopware CLI tools
 
@@ -46,7 +56,6 @@ Run shopware console commands from anywhere in the project.
 $ shopware phar command [options] [arguments]
 ```
 
-Run the official [shopware CLI tools](https://github.com/shopwareLabs/sw-cli-tools) from anywhere in the project.
 
 
 ## License
