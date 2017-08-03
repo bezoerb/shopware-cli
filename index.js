@@ -8,7 +8,7 @@ module.exports = (command, args, options) => {
   switch (command) {
     case 'console':
       return swConsole(args, options);
-    case 'phar':
+    case 'tools':
       return phar(args, options);
   }
 

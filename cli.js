@@ -30,7 +30,7 @@ const showHelp = () => console.log(redent(trimNewlines(`
     install  Setup new shopware installation
     refresh  Refresh shopware installation and plugins from git
     console  Make calls to the shopware console from anywhere in your project
-    phar     Make calls to the shopware sw.phar from anywhere in your project
+    tools    Make calls to the shopware sw.phar from anywhere in your project
     help     Show this help
      
   Options
