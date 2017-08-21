@@ -14,7 +14,7 @@ module.exports = (command, args, options) => {
 
   const tasks = new Listr([
     {
-      title: 'Installing shopware',
+      title: 'Install',
       task: () => install(options),
       enabled: () => command === 'install',
     },
