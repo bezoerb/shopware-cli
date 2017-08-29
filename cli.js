@@ -17,7 +17,7 @@ const cli = meow({help: false});
 
 updateNotifier({pkg: cli.pkg}).notify();
 
-//console.log(cli);process.exit(1);
+// Console.log(cli);process.exit(1);
 
 const rcContent = `# This file is required to identify the root installation directory.
 # The config can be found in: ${store.path}`;
@@ -41,11 +41,11 @@ const showHelp = () => console.log(redent(trimNewlines(`
     $ shopware 
 `), 2));
 
-// check existing installation
+// Check existing installation
 const initial = ![
   path.join(base, '.shopware-cli.json'),
-  path.join(base, 'src','config.php'),
-  path.join(base, 'src','shopware.php'),
+  path.join(base, 'src', 'config.php'),
+  path.join(base, 'src', 'shopware.php')
 ].reduce((res, file) => res || fs.existsSync(file), false);
 
 Promise
@@ -54,7 +54,7 @@ Promise
   .then(({cmd, input}) => {
     if (cmd === 'install') {
       fs.writeFileSync(path.join(base, '.shopware-cli.json'), rcContent);
-      return ui.questions(Object.assign({},cli.flags, {initial})).then(answers => ({cmd, answers, input}));
+      return ui.questions(Object.assign({}, cli.flags, {initial})).then(answers => ({cmd, answers, input}));
     }
 
     return {cmd, answers: {}, input};
@@ -64,7 +64,7 @@ Promise
       console.log(redent(trimNewlines(`${chalk.red('Canceled due to existing installation')}`)));
       process.exit(0);
     }
-    
+
     if (cmd) {
       return swag(cmd, input, Object.assign({}, cli.flags, answers));
     }

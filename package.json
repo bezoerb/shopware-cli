@@ -4,7 +4,9 @@
   "description": "Convinienve cli tool for shopware - BETA",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "prepublish": "nsp check",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "xo && nyc ava"
   },
   "author": {
     "name": "Ben Zörb",
@@ -34,6 +36,13 @@
     "console"
   ],
   "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "coveralls": "^2.13.1",
+    "nsp": "^2.7.0",
+    "nyc": "^11.1.0",
+    "xo": "^0.18.2"
+  },
   "dependencies": {
     "any-observable": "^0.2.0",
     "chalk": "^2.0.1",
@@ -46,6 +55,7 @@
     "has-yarn": "^1.0.0",
     "inquirer": "^3.1.0",
     "listr": "^0.12.0",
+    "log-symbols": "^2.0.0",
     "make-dir": "^1.0.0",
     "meow": "^3.7.0",
     "mimic-fn": "^1.1.0",
@@ -54,5 +64,14 @@
     "rxjs": "^5.4.1",
     "trim-newlines": "^2.0.0",
     "update-notifier": "^2.2.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "node": true
+    }
+  },
+  "xo": {
+    "space": true
   }
 }
