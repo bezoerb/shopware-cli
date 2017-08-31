@@ -1,4 +1,5 @@
 import os from 'os';
+import fs from 'fs';
 import path from 'path';
 import test from 'ava';
 import makeDir from 'make-dir';
@@ -8,6 +9,7 @@ const testdir = path.join(os.tmpdir(), 'shopware-cli-test');
 
 test.before('prepare', async () => {
   await makeDir(testdir);
+  process.chdir(testdir);
 });
 
 test('fail "console" without swdir', async t => {
@@ -19,7 +21,6 @@ test('fail "tools" without swdir', async t => {
 });
 
 test('install', async t => {
-  process.chdir(path.join(os.tmpdir(), 'shopware-cli-test'));
   await swag('install', {}, {
     url: 'localhost',
     dbname: 'shopware_test',
@@ -29,5 +30,6 @@ test('install', async t => {
     dbport: '3306'
   });
 
+  t.true(fs.existsSync(path.join(testdir, 'src/config.php')), 'shopware config generated');
   t.pass(`Done in ${process.cwd()}`);
 });
