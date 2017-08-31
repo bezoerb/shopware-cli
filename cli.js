@@ -43,9 +43,9 @@ const showHelp = () => console.log(redent(trimNewlines(`
 
 // Check existing installation
 const initial = ![
-  path.join(base, '.shopware-cli.json'),
-  path.join(base, 'src', 'config.php'),
-  path.join(base, 'src', 'shopware.php')
+  path.join(base(), '.shopware-cli.json'),
+  path.join(base(), 'src', 'config.php'),
+  path.join(base(), 'src', 'shopware.php')
 ].reduce((res, file) => res || fs.existsSync(file), false);
 
 Promise
@@ -53,7 +53,7 @@ Promise
   .then(() => ({cmd: cli.input[0], input: cli.input.slice(1) || []}))
   .then(({cmd, input}) => {
     if (cmd === 'install') {
-      fs.writeFileSync(path.join(base, '.shopware-cli.json'), rcContent);
+      fs.writeFileSync(path.join(base(), '.shopware-cli.json'), rcContent);
       return ui.questions(Object.assign({}, cli.flags, {initial})).then(answers => ({cmd, answers, input}));
     }
 
@@ -66,7 +66,8 @@ Promise
     }
 
     if (cmd) {
-      return swag(cmd, input, Object.assign({}, cli.flags, answers));
+      return swag(cmd, input, Object.assign({}, cli.flags, answers))
+        .catch(err => console.error(chalk.red(err.message)) && process.exit(1));
     }
 
     showHelp();
