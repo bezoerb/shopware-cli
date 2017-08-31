@@ -1,5 +1,5 @@
 import os from 'os';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 import test from 'ava';
 import makeDir from 'make-dir';
@@ -31,5 +31,14 @@ test('install', async t => {
   });
 
   t.true(fs.existsSync(path.join(testdir, 'src/config.php')), 'shopware config generated');
+
+  const contents = await fs.readFile(path.join(testdir, 'src/config.php'), 'utf8');
+
+  t.regex(contents, new RegExp(`'username'\s+=>\s+'root'`)); // eslint-disable-line no-useless-escape
+  t.regex(contents, new RegExp(`'password'\s+=>\s+'breozb'`)); // eslint-disable-line no-useless-escape
+  t.regex(contents, new RegExp(`'dbname'\s+=>\s+'satisfyr'`)); // eslint-disable-line no-useless-escape
+  t.regex(contents, new RegExp(`'host'\s+=>\s+'127.0.0.1'`)); // eslint-disable-line no-useless-escape
+  t.regex(contents, new RegExp(`'port'\s+=>\s+'3306'`)); // eslint-disable-line no-useless-escape
+
   t.pass(`Done in ${process.cwd()}`);
 });
