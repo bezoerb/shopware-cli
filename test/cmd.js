@@ -19,11 +19,10 @@ test('fail "tools" without swdir', async t => {
 });
 
 test('install', async t => {
-  console.log(path.join(os.tmpdir(), 'shopware-cli-test'));
   process.chdir(path.join(os.tmpdir(), 'shopware-cli-test'));
   await swag('install', {}, {
     url: 'localhost',
-    dbname: 'shopware-test',
+    dbname: 'shopware_test',
     dbuser: 'root',
     dbpass: '',
     dbhost: '127.0.0.1',
