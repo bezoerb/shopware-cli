@@ -1,4 +1,4 @@
-# Shopware CLI
+# Shopware CLI [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 Convinienve CLI tool for shopware - **BETA**
 
@@ -61,3 +61,14 @@ $ shopware phar command [options] [arguments]
 ## License
 
 MIT © [Ben Zörb](http://sommerlaune.com)
+
+
+[npm-image]: https://badge.fury.io/js/shopware-cli.svg
+[npm-url]: https://npmjs.org/package/shopware-cli
+[travis-image]: https://travis-ci.org/bezoerb/shopware-cli.svg?branch=master
+[travis-url]: https://travis-ci.org/bezoerb/shopware-cli
+[daviddm-image]: https://david-dm.org/bezoerb/shopware-cli.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bezoerb/shopware-cli
+[coveralls-image]: https://coveralls.io/repos/bezoerb/shopware-cli/badge.svg
+[coveralls-url]: https://coveralls.io/r/bezoerb/shopware-cli
+
