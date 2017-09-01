@@ -29,8 +29,8 @@ test('install', async t => {
   const contents = await fs.readFile(path.join(t.context.cwd, 'src/config.php'), 'utf8');
 
   t.regex(contents, new RegExp(`'username'\\s+=>\\s+'root'`));
-  t.regex(contents, new RegExp(`'password'\\s+=>\\s+'breozb'`));
-  t.regex(contents, new RegExp(`'dbname'\\s+=>\\s+'satisfyr'`));
+  t.regex(contents, new RegExp(`'password'\\s+=>\\s+''`));
+  t.regex(contents, new RegExp(`'dbname'\\s+=>\\s+'shopware_test'`));
   t.regex(contents, new RegExp(`'host'\\s+=>\\s+'127.0.0.1'`));
   t.regex(contents, new RegExp(`'port'\\s+=>\\s+'3306'`));
 
