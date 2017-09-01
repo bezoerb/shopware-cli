@@ -6,7 +6,7 @@ import makeDir from 'make-dir';
 import uuid from 'uuid/v4';
 import swag from '..';
 
-test.beforeEach('prepare', async () => {
+test.beforeEach('prepare', async t => {
   const cwd = path.join(os.tmpdir(), 'shopware-cli-test', uuid());
   await makeDir(cwd);
   process.chdir(cwd);
