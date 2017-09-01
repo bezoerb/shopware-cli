@@ -55,7 +55,7 @@ $ shopware console command [options] [arguments]
 #### Official shopware CLI tools
 
 ```bash
-$ shopware phar command [options] [arguments]
+$ shopware tools command [options] [arguments]
 ```
 
 
