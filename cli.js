@@ -9,7 +9,7 @@ const trimNewlines = require('trim-newlines');
 const chalk = require('chalk');
 const redent = require('redent');
 const ui = require('./lib/ui');
-const {base} = require('./lib/env');
+const {base, submoduleTarget} = require('./lib/env');
 const store = require('./lib/store');
 const swag = require('./');
 
@@ -44,8 +44,8 @@ const showHelp = () => console.log(redent(trimNewlines(`
 // Check existing installation
 const initial = ![
   path.join(base(), '.shopware-cli.json'),
-  path.join(base(), 'src', 'config.php'),
-  path.join(base(), 'src', 'shopware.php')
+  path.join(base(), submoduleTarget, 'config.php'),
+  path.join(base(), submoduleTarget, 'shopware.php')
 ].reduce((res, file) => res || fs.existsSync(file), false);
 
 Promise

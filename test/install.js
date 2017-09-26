@@ -5,6 +5,7 @@ import test from 'ava';
 import makeDir from 'make-dir';
 import uuid from 'uuid/v4';
 import swag from '..';
+import {submoduleTarget} from '../lib/env';
 
 test.beforeEach('prepare', async t => {
   const cwd = path.join(os.tmpdir(), 'shopware-cli-test', uuid());
@@ -24,9 +25,9 @@ test.beforeEach('prepare', async t => {
 });
 
 test('install', async t => {
-  t.true(fs.existsSync(path.join(t.context.cwd, 'src/config.php')), 'shopware config generated');
+  t.true(fs.existsSync(path.join(t.context.cwd, submoduleTarget, 'config.php')), 'shopware config generated');
 
-  const contents = await fs.readFile(path.join(t.context.cwd, 'src/config.php'), 'utf8');
+  const contents = await fs.readFile(path.join(t.context.cwd, submoduleTarget, 'config.php'), 'utf8');
 
   t.regex(contents, new RegExp(`'username'\\s+=>\\s+'root'`));
   t.regex(contents, new RegExp(`'password'\\s+=>\\s+''`));
