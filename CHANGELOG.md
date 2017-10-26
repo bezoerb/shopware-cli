@@ -1,15 +1,15 @@
 
-v0.2.2 / 2017-10-26
+v0.1.6 / 2017-10-26
 ==================
 
   * Bump dependencies
 
-v0.2.1 / 2017-10-04
+v0.1.6 / 2017-10-04
 ==================
 
   * Fixes failing refresh cmd
 
-v0.2.0 / 2017-09-29
+v0.1.4 / 2017-09-29
 ===================
 
   * Changes submodule directory to 'shopware'
