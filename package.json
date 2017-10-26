@@ -1,6 +1,6 @@
 {
   "name": "shopware-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Convinienve cli tool for shopware - BETA",
   "main": "index.js",
   "scripts": {
