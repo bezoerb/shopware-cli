@@ -65,7 +65,8 @@
     "redent": "^2.0.0",
     "rxjs": "^5.4.1",
     "trim-newlines": "^2.0.0",
-    "update-notifier": "^2.2.0"
+    "update-notifier": "^2.2.0",
+    "wsfp": "0.0.7"
   },
   "eslintConfig": {
     "extends": "xo-space",

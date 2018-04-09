@@ -27,11 +27,10 @@ const showHelp = () => console.log(redent(trimNewlines(`
     $ shopware <command>
     
   Commands
-    install  Setup new shopware installation
-    refresh  Refresh shopware installation and plugins from git
-    console  Make calls to the shopware console from anywhere in your project
-    tools    Make calls to the shopware sw.phar from anywhere in your project
-    help     Show this help
+    console     Make calls to the shopware console from anywhere in your project
+    tools       Make calls to the shopware sw.phar from anywhere in your project
+    cache:clear Clear cache
+    help        Show this help
      
   Options
     --tbd 

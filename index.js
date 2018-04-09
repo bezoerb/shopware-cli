@@ -1,7 +1,7 @@
 const Listr = require('listr');
 const install = require('./lib/install');
 const refresh = require('./lib/refresh');
-const {swConsole, phar} = require('./lib/util');
+const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
 
 module.exports = (command, args, options) => {
   const tasks = new Listr([
@@ -21,7 +21,12 @@ module.exports = (command, args, options) => {
       return swConsole(args, options);
     case 'tools':
       return phar(args, options);
-    default:
-      return tasks.run();
+    case 'permissions':
+      return setPermissions();
+    case 'cache:clear':
+      return clearCache(options);
+    case 'install':
+    case 'refresh':
+      return console.log('deprecated...');
   }
 };
