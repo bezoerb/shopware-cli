@@ -38,6 +38,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "coveralls": "^3.0.0",
+    "eslint-config-xo-space": "^0.18.0",
     "nsp": "^3.2.1",
     "nyc": "^11.6.0",
     "uuid": "^3.2.1",

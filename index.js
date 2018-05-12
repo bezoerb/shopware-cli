@@ -4,20 +4,7 @@ const refresh = require('./lib/refresh');
 const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
 
 module.exports = (command, args, options) => {
-  new Listr([
-    {
-      title: 'Install',
-      task: () => install(options),
-      enabled: () => command === 'install'
-    },
-    {
-      title: 'Running updates',
-      task: () => refresh(options)
-    }
-  ]);
-
   switch (command) {
-    default:
     case 'console':
       return swConsole(args, options);
     case 'tools':
@@ -29,5 +16,7 @@ module.exports = (command, args, options) => {
     case 'install':
     case 'refresh':
       return console.log('deprecated...');
+    default:
+      console.log(`Command ${command} is not implemented`);
   }
 };
