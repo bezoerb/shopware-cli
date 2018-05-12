@@ -1,20 +1,20 @@
-const Listr = require('listr');
-const install = require('./lib/install');
-const refresh = require('./lib/refresh');
+// Const Listr = require('listr');
+// const install = require('./lib/install');
+// const refresh = require('./lib/refresh');
 const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
 
 module.exports = (command, args, options) => {
-  const tasks = new Listr([
-    {
-      title: 'Install',
-      task: () => install(options),
-      enabled: () => command === 'install'
-    },
-    {
-      title: 'Running updates',
-      task: () => refresh(options)
-    }
-  ]);
+  // Const tasks = new Listr([
+  //   {
+  //     title: 'Install',
+  //     task: () => install(options),
+  //     enabled: () => command === 'install'
+  //   },
+  //   {
+  //     title: 'Running updates',
+  //     task: () => refresh(options)
+  //   }
+  // ]);
 
   switch (command) {
     case 'console':
@@ -28,5 +28,7 @@ module.exports = (command, args, options) => {
     case 'install':
     case 'refresh':
       return console.log('deprecated...');
+    default:
+      console.log(`Command ${command} is not implemented`);
   }
 };
