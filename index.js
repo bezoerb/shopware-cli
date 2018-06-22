@@ -4,7 +4,7 @@ const refresh = require('./lib/refresh');
 const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
 
 module.exports = (command, args, options) => {
-  const tasks = new Listr([
+  new Listr([
     {
       title: 'Install',
       task: () => install(options),
@@ -17,6 +17,7 @@ module.exports = (command, args, options) => {
   ]);
 
   switch (command) {
+    default:
     case 'console':
       return swConsole(args, options);
     case 'tools':
