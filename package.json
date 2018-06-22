@@ -4,7 +4,6 @@
   "description": "Convinienve cli tool for shopware - BETA",
   "main": "index.js",
   "scripts": {
-    "prepublish": "nsp check",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "xo && nyc ava"
   },
