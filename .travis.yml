@@ -20,10 +20,13 @@ services:
   - mysql
 
 before_install:
+  - npm i -g npm@latest
   - mysql -e 'CREATE DATABASE shopware_test;'
   - php --version
   - if [[ $TRAVIS_SECURE_ENV_VARS = "true" ]]; then php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar config -g github-oauth.github.com $GH_AUTH; fi
- 
+
+install: npm ci
+
 before_script:
   - phpenv config-rm xdebug.ini
 
@@ -32,6 +35,6 @@ matrix:
 
 cache:
   directories:
-    - node_modules
+    - "$HOME/.npm"
 
 after_script: 'npm run coveralls'
