@@ -1,6 +1,3 @@
-const Listr = require('listr');
-const install = require('./lib/install');
-const refresh = require('./lib/refresh');
 const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
 
 module.exports = (command, args, options) => {
