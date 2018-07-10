@@ -11,7 +11,7 @@ const redent = require('redent');
 const ui = require('./lib/ui');
 const {base, submoduleTarget} = require('./lib/env');
 const store = require('./lib/store');
-const swag = require('./');
+const swag = require('.');
 
 const cli = meow({help: false});
 
