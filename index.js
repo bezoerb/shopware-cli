@@ -8,6 +8,7 @@ module.exports = (command, args, options) => {
       return phar(args, options);
     case 'permissions':
       return setPermissions();
+    case 'clear:cache':
     case 'cache:clear':
       return clearCache(options);
     case 'install':
