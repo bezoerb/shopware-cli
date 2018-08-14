@@ -2,6 +2,7 @@
 // const install = require('./lib/install');
 // const refresh = require('./lib/refresh');
 const {swConsole, phar, setPermissions, clearCache} = require('./lib/util');
+const {run} = require('./lib/gulp-runner');
 
 module.exports = (command, args, options) => {
   // Const tasks = new Listr([
@@ -25,6 +26,10 @@ module.exports = (command, args, options) => {
       return setPermissions();
     case 'cache:clear':
       return clearCache(options);
+    case 'task': {
+      const [task, ...params] = args;
+      return run(task, params, options);
+    }
     case 'install':
     case 'refresh':
       return console.log('deprecated...');

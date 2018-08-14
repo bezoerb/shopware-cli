@@ -1,0 +1,35 @@
+{
+    "extends": "xo",
+    "env": {
+        "node": false,
+        "es6": true,
+        "browser": true,
+        "commonjs": true
+    },
+    "rules": {
+        "indent": [ 2, 2, { "SwitchCase": 1 } ],
+        "no-invalid-this": 0,
+        "no-else-return": [ "error", { "allowElseIf": true } ],
+        "comma-dangle": [ "error", "always-multiline" ],
+        "no-mixed-operators": [
+        "error", {
+            "groups": [
+            [ "&", "|", "^", "~", "<<", ">>", ">>>" ],
+            [ "==", "!=", "===", "!==", ">", ">=", "<", "<=" ],
+            [ "&&", "||" ],
+            [ "in", "instanceof" ]
+            ],
+            "allowSamePrecedence": true
+        }
+        ],
+        "valid-jsdoc": ["warn", {
+        "requireReturn": false,
+        "requireParamDescription": false,
+        "requireReturnDescription": false
+        }]
+    },
+    "globals": {
+        "jQuery": false,
+        "$": false
+    }
+}  
