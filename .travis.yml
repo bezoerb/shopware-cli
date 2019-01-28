@@ -7,6 +7,7 @@ node_js:
   - "6"
   - "8"
   - "10"
+  - "node"
 
 addons:
   apt:
@@ -25,7 +26,7 @@ before_install:
   - php --version
   - if [[ $TRAVIS_SECURE_ENV_VARS = "true" ]]; then php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar config -g github-oauth.github.com $GH_AUTH; fi
 
-install: npm ci
+install: npm install
 
 before_script:
   - phpenv config-rm xdebug.ini
@@ -36,5 +37,6 @@ matrix:
 cache:
   directories:
     - "$HOME/.npm"
+    - "node_modules"
 
 after_script: 'npm run coveralls'
