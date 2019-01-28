@@ -20,12 +20,13 @@ services:
   - mysql
 
 before_install:
-  - npm i -g npm@latest
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.13.0
+  - export PATH=$HOME/.yarn/bin:$PATH
   - mysql -e 'CREATE DATABASE shopware_test;'
   - php --version
   - if [[ $TRAVIS_SECURE_ENV_VARS = "true" ]]; then php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar config -g github-oauth.github.com $GH_AUTH; fi
 
-install: npm ci
+install: yarn
 
 before_script:
   - phpenv config-rm xdebug.ini
@@ -34,7 +35,8 @@ matrix:
   fast_finish: true
 
 cache:
+  yarn: true
   directories:
-    - "$HOME/.npm"
+    - "node_modules"
 
-after_script: 'npm run coveralls'
+after_script: 'yarn run coveralls'
